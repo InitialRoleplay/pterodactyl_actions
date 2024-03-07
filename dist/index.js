@@ -33366,14 +33366,11 @@ async function start() {
 
     if (deletes) {
       for (const to_delete of deletes) {
-        console.log(
-          "Deleting file/folder on server : " + JSON.stringify(to_delete)
-        )
         await axios
           .request({
             method: "post",
             maxBodyLength: Infinity,
-            url: `https://${server}/api/client/servers/${server_id}/power`,
+            url: `https://${server}/api/client/servers/${server_id}/files/delete`,
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${api_key}`,
@@ -33382,7 +33379,7 @@ async function start() {
           })
           .then(async () => {
             console.log(
-              "Deletes file/folder on server : " + to_delete.root + " " + to_delete.files[0] +  " ... "
+              "Deletes file/folder on server : " + to_delete.root + " : " + to_delete.files[0] +  " ... "
             );
             await delay(5000);
           })
