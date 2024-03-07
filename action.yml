@@ -1,0 +1,22 @@
+name: 'Pterodactyl Actions'
+description: 'Automatic pterodactyl actions for Initial Roleplay Servers'
+branding: 
+  icon: "upload"
+  color: "red"
+inputs:
+  api_key:
+    description: The pterodactyl api key
+    required: true
+  server:
+    description: The pterodactyl server ip
+    required: true
+  server_id:
+    description: The pterodactyl server id
+    required: true
+  power:
+    description: Power state to change
+    required: true
+    default: "start"
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
