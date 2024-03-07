@@ -33367,7 +33367,7 @@ async function start() {
     if (deletes) {
       for (const to_delete of deletes) {
         console.log(
-          "Deleting file/folder on server : " + to_delete.root + " " + to_delete.files[0]
+          "Deleting file/folder on server : " + JSON.stringify(to_delete)
         )
         await axios
           .request({
