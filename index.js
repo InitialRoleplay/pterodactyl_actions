@@ -35,11 +35,9 @@ async function start() {
   const server_id = core.getInput("server_id");
 
   const power = core.getInput("power");
-  const deletes = parse_to_delete(core.getInput("power"));
+  const deletes = parse_to_delete(core.getInput("delete"));
 
   try {
-    console.log("Power action on server : " + power + " ...");
-
     if (power) {
       await axios
         .request({
