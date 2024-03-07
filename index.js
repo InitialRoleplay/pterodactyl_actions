@@ -6,9 +6,13 @@ function delay(time) {
 }
 
 function parse_to_delete(to_delete) {
-  const data = to_delete.split("\n").filter((d) => d != "");
-
   const files = [];
+
+  if (!to_delete) {
+    return files
+  }
+
+  const data = to_delete.split("\n").filter((d) => d != "");
 
   if (data.length === 0)
     throw new Error(
