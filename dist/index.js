@@ -33333,10 +33333,12 @@ async function start() {
   const api_key = core.getInput("api_key");
   const server_id = core.getInput("server_id");
 
-  const power = toString(core.getInput("power"));
+  const power = core.getInput("power");
   const deletes = parse_to_delete(core.getInput("power"));
 
   try {
+    console.log("Power action on server : " + power + " ...");
+
     if (power) {
       await axios
         .request({
